@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  CalorieCountingDevApp
-//
-//  Created by Brennan Stehling on 5/12/20.
-//  Copyright © 2020 Brennan Stehling. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

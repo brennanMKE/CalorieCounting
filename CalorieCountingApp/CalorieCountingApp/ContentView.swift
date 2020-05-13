@@ -1,16 +1,37 @@
-//
-//  ContentView.swift
-//  CalorieCountingApp
-//
-//  Created by Brennan Stehling on 5/12/20.
-//  Copyright © 2020 Brennan Stehling. All rights reserved.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection = 0
+
     var body: some View {
-        Text("Hello, World!")
+        TabView(selection: $selection) {
+            Text("Today")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Text("Today")
+                    }
+                }
+                .tag(0)
+
+            Text("Entry")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Text("Entry")
+                    }
+                }
+                .tag(1)
+
+            Text("Chart")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Text("Chart")
+                    }
+                }
+                .tag(2)
+        }
     }
 }
 

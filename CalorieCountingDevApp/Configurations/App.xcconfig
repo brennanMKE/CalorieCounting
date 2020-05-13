@@ -1,0 +1,5 @@
+
+PRODUCT_DISPLAY_NAME = Dev
+PRODUCT_NAME = CalorieCountingDevApp
+
+DEVELOPMENT_ASSET_PATHS = "$(PRODUCT_NAME)/Preview Content"

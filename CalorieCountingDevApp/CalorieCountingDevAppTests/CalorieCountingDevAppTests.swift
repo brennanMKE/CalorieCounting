@@ -1,11 +1,3 @@
-//
-//  CalorieCountingDevAppTests.swift
-//  CalorieCountingDevAppTests
-//
-//  Created by Brennan Stehling on 5/12/20.
-//  Copyright © 2020 Brennan Stehling. All rights reserved.
-//
-
 import XCTest
 @testable import CalorieCountingDevApp
 
@@ -30,5 +22,4 @@ class CalorieCountingDevAppTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

@@ -1,11 +1,3 @@
-//
-//  CalorieCountingAppTests.swift
-//  CalorieCountingAppTests
-//
-//  Created by Brennan Stehling on 5/12/20.
-//  Copyright © 2020 Brennan Stehling. All rights reserved.
-//
-
 import XCTest
 @testable import CalorieCountingApp
 
