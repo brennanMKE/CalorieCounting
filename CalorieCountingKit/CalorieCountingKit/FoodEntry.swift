@@ -1,11 +1,12 @@
 import Foundation
+import os.log
 
 public struct FoodEntry: JSONRepresentable, Equatable {
-    let date: Date
-    let timePeriod: TimePeriod
-    let foodItemUuid: String
-    let uuid: String
-    let isDeleted: Bool
+    public let date: Date
+    public let timePeriod: TimePeriod
+    public let foodItemUuid: String
+    public let uuid: String
+    public let isDeleted: Bool
 
     public init(date: Date,
                 timePeriod: TimePeriod,
@@ -30,15 +31,4 @@ public struct FoodEntry: JSONRepresentable, Equatable {
         self.uuid = uuid
         self.isDeleted = isDeleted
     }
-}
-
-public protocol FoodEntryStore {}
-
-public struct JSONFoodEntryStore: FoodEntryStore {
-    enum Failure: Error {
-        case failedToLoadFoodItem
-        case unknown
-    }
-
-
 }

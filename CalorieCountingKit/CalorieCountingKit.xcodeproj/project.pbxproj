@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26325FB8246C99D500586A5D /* SoftDeletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26325FB7246C99D500586A5D /* SoftDeletable.swift */; };
+		26325FBA246C9CA900586A5D /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26325FB9246C9CA900586A5D /* ImageStore.swift */; };
 		26661306246B985600CC1D57 /* CalorieCountingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266612FC246B985600CC1D57 /* CalorieCountingKit.framework */; };
 		2666130D246B985600CC1D57 /* CalorieCountingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 266612FF246B985600CC1D57 /* CalorieCountingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2666132F246B98E600CC1D57 /* FoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666132C246B98E600CC1D57 /* FoodEntry.swift */; };
@@ -19,11 +21,15 @@
 		2666133D246B9C7500CC1D57 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2666133A246B9C7500CC1D57 /* Common.xcconfig */; };
 		2666133E246B9C7500CC1D57 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2666133B246B9C7500CC1D57 /* Debug.xcconfig */; };
 		26661344246BBCE100CC1D57 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661343246BBCE100CC1D57 /* JSON.swift */; };
-		26966926246BD05A001820D2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966925246BD05A001820D2 /* Store.swift */; };
+		26966926246BD05A001820D2 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966925246BD05A001820D2 /* FileStore.swift */; };
 		26966928246BD3E3001820D2 /* JSONRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966927246BD3E3001820D2 /* JSONRepresentable.swift */; };
 		2696692A246BD3FF001820D2 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966929246BD3FF001820D2 /* Storable.swift */; };
-		2696692C246C5DA0001820D2 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696692B246C5DA0001820D2 /* Files.swift */; };
 		2696692E246C70E6001820D2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696692D246C70E6001820D2 /* Logger.swift */; };
+		26B51AB5246CB2AE00862B84 /* FoodItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51AB4246CB2AE00862B84 /* FoodItemStore.swift */; };
+		26B51AB7246CB2EA00862B84 /* JSONFoodItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51AB6246CB2EA00862B84 /* JSONFoodItemStore.swift */; };
+		26B51AB9246CB35800862B84 /* FoodEntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51AB8246CB35800862B84 /* FoodEntryStore.swift */; };
+		26B51ABB246CB38500862B84 /* JSONFoodEntryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51ABA246CB38500862B84 /* JSONFoodEntryStore.swift */; };
+		26B51ABD246CB84200862B84 /* ModelStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51ABC246CB84200862B84 /* ModelStores.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26325FB7246C99D500586A5D /* SoftDeletable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftDeletable.swift; sourceTree = "<group>"; };
+		26325FB9246C9CA900586A5D /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		266612FC246B985600CC1D57 /* CalorieCountingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CalorieCountingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		266612FF246B985600CC1D57 /* CalorieCountingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalorieCountingKit.h; sourceTree = "<group>"; };
 		26661300246B985600CC1D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,11 +62,15 @@
 		2666133F246B9C8300CC1D57 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		26661340246B9C8C00CC1D57 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		26661343246BBCE100CC1D57 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
-		26966925246BD05A001820D2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		26966925246BD05A001820D2 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
 		26966927246BD3E3001820D2 /* JSONRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRepresentable.swift; sourceTree = "<group>"; };
 		26966929246BD3FF001820D2 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
-		2696692B246C5DA0001820D2 /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		2696692D246C70E6001820D2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		26B51AB4246CB2AE00862B84 /* FoodItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemStore.swift; sourceTree = "<group>"; };
+		26B51AB6246CB2EA00862B84 /* JSONFoodItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFoodItemStore.swift; sourceTree = "<group>"; };
+		26B51AB8246CB35800862B84 /* FoodEntryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryStore.swift; sourceTree = "<group>"; };
+		26B51ABA246CB38500862B84 /* JSONFoodEntryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFoodEntryStore.swift; sourceTree = "<group>"; };
+		26B51ABC246CB84200862B84 /* ModelStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStores.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +96,14 @@
 			isa = PBXGroup;
 			children = (
 				26966929246BD3FF001820D2 /* Storable.swift */,
-				26966925246BD05A001820D2 /* Store.swift */,
-				26661343246BBCE100CC1D57 /* JSON.swift */,
+				26325FB7246C99D500586A5D /* SoftDeletable.swift */,
 				26966927246BD3E3001820D2 /* JSONRepresentable.swift */,
-				2696692B246C5DA0001820D2 /* Files.swift */,
+				26966925246BD05A001820D2 /* FileStore.swift */,
+				26325FB9246C9CA900586A5D /* ImageStore.swift */,
+				26661343246BBCE100CC1D57 /* JSON.swift */,
 				2696692D246C70E6001820D2 /* Logger.swift */,
+				26B51AB6246CB2EA00862B84 /* JSONFoodItemStore.swift */,
+				26B51ABA246CB38500862B84 /* JSONFoodEntryStore.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -118,8 +133,11 @@
 				26502B69246BCBFA006956A4 /* Internal */,
 				266612FF246B985600CC1D57 /* CalorieCountingKit.h */,
 				26661300246B985600CC1D57 /* Info.plist */,
+				26B51ABC246CB84200862B84 /* ModelStores.swift */,
 				2666132D246B98E600CC1D57 /* FoodItem.swift */,
+				26B51AB4246CB2AE00862B84 /* FoodItemStore.swift */,
 				2666132C246B98E600CC1D57 /* FoodEntry.swift */,
+				26B51AB8246CB35800862B84 /* FoodEntryStore.swift */,
 				2666132E246B98E600CC1D57 /* TimePeriod.swift */,
 			);
 			path = CalorieCountingKit;
@@ -260,14 +278,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26325FBA246C9CA900586A5D /* ImageStore.swift in Sources */,
+				26B51ABB246CB38500862B84 /* JSONFoodEntryStore.swift in Sources */,
 				26966928246BD3E3001820D2 /* JSONRepresentable.swift in Sources */,
-				2696692C246C5DA0001820D2 /* Files.swift in Sources */,
 				2696692A246BD3FF001820D2 /* Storable.swift in Sources */,
-				26966926246BD05A001820D2 /* Store.swift in Sources */,
+				26966926246BD05A001820D2 /* FileStore.swift in Sources */,
 				2696692E246C70E6001820D2 /* Logger.swift in Sources */,
 				2666132F246B98E600CC1D57 /* FoodEntry.swift in Sources */,
+				26325FB8246C99D500586A5D /* SoftDeletable.swift in Sources */,
 				26661331246B98E600CC1D57 /* TimePeriod.swift in Sources */,
+				26B51AB7246CB2EA00862B84 /* JSONFoodItemStore.swift in Sources */,
 				26661330246B98E600CC1D57 /* FoodItem.swift in Sources */,
+				26B51AB5246CB2AE00862B84 /* FoodItemStore.swift in Sources */,
+				26B51ABD246CB84200862B84 /* ModelStores.swift in Sources */,
+				26B51AB9246CB35800862B84 /* FoodEntryStore.swift in Sources */,
 				26661344246BBCE100CC1D57 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
