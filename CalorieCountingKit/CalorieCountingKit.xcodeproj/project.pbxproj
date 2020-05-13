@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26661306246B985600CC1D57 /* CalorieCountingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 266612FC246B985600CC1D57 /* CalorieCountingKit.framework */; };
+		2666130D246B985600CC1D57 /* CalorieCountingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 266612FF246B985600CC1D57 /* CalorieCountingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2666132F246B98E600CC1D57 /* FoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666132C246B98E600CC1D57 /* FoodEntry.swift */; };
+		26661330246B98E600CC1D57 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666132D246B98E600CC1D57 /* FoodItem.swift */; };
+		26661331246B98E600CC1D57 /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666132E246B98E600CC1D57 /* TimePeriod.swift */; };
+		26661333246B991400CC1D57 /* TimePeriodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661332246B991400CC1D57 /* TimePeriodTests.swift */; };
+		26661335246B992300CC1D57 /* FoodEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661334246B992300CC1D57 /* FoodEntryTests.swift */; };
+		26661337246B993500CC1D57 /* FoodItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661336246B993500CC1D57 /* FoodItemTests.swift */; };
+		2666133C246B9C7500CC1D57 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 26661339246B9C7500CC1D57 /* Release.xcconfig */; };
+		2666133D246B9C7500CC1D57 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2666133A246B9C7500CC1D57 /* Common.xcconfig */; };
+		2666133E246B9C7500CC1D57 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2666133B246B9C7500CC1D57 /* Debug.xcconfig */; };
+		26661344246BBCE100CC1D57 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661343246BBCE100CC1D57 /* JSON.swift */; };
+		26966926246BD05A001820D2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966925246BD05A001820D2 /* Store.swift */; };
+		26966928246BD3E3001820D2 /* JSONRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966927246BD3E3001820D2 /* JSONRepresentable.swift */; };
+		2696692A246BD3FF001820D2 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26966929246BD3FF001820D2 /* Storable.swift */; };
+		2696692C246C5DA0001820D2 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696692B246C5DA0001820D2 /* Files.swift */; };
+		2696692E246C70E6001820D2 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2696692D246C70E6001820D2 /* Logger.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26661307246B985600CC1D57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266612F3246B985600CC1D57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 266612FB246B985600CC1D57;
+			remoteInfo = CalorieCountingKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		266612FC246B985600CC1D57 /* CalorieCountingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CalorieCountingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		266612FF246B985600CC1D57 /* CalorieCountingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalorieCountingKit.h; sourceTree = "<group>"; };
+		26661300246B985600CC1D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26661305246B985600CC1D57 /* CalorieCountingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalorieCountingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2666130C246B985600CC1D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2666132C246B98E600CC1D57 /* FoodEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodEntry.swift; sourceTree = "<group>"; };
+		2666132D246B98E600CC1D57 /* FoodItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		2666132E246B98E600CC1D57 /* TimePeriod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		26661332246B991400CC1D57 /* TimePeriodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodTests.swift; sourceTree = "<group>"; };
+		26661334246B992300CC1D57 /* FoodEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryTests.swift; sourceTree = "<group>"; };
+		26661336246B993500CC1D57 /* FoodItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemTests.swift; sourceTree = "<group>"; };
+		26661339246B9C7500CC1D57 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2666133A246B9C7500CC1D57 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		2666133B246B9C7500CC1D57 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		2666133F246B9C8300CC1D57 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		26661340246B9C8C00CC1D57 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		26661343246BBCE100CC1D57 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		26966925246BD05A001820D2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		26966927246BD3E3001820D2 /* JSONRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRepresentable.swift; sourceTree = "<group>"; };
+		26966929246BD3FF001820D2 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		2696692B246C5DA0001820D2 /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
+		2696692D246C70E6001820D2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		266612F9246B985600CC1D57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26661302246B985600CC1D57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26661306246B985600CC1D57 /* CalorieCountingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26502B69246BCBFA006956A4 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				26966929246BD3FF001820D2 /* Storable.swift */,
+				26966925246BD05A001820D2 /* Store.swift */,
+				26661343246BBCE100CC1D57 /* JSON.swift */,
+				26966927246BD3E3001820D2 /* JSONRepresentable.swift */,
+				2696692B246C5DA0001820D2 /* Files.swift */,
+				2696692D246C70E6001820D2 /* Logger.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		266612F2246B985600CC1D57 = {
+			isa = PBXGroup;
+			children = (
+				26661338246B9C3C00CC1D57 /* Configurations */,
+				266612FE246B985600CC1D57 /* CalorieCountingKit */,
+				26661309246B985600CC1D57 /* CalorieCountingKitTests */,
+				266612FD246B985600CC1D57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		266612FD246B985600CC1D57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				266612FC246B985600CC1D57 /* CalorieCountingKit.framework */,
+				26661305246B985600CC1D57 /* CalorieCountingKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		266612FE246B985600CC1D57 /* CalorieCountingKit */ = {
+			isa = PBXGroup;
+			children = (
+				26502B69246BCBFA006956A4 /* Internal */,
+				266612FF246B985600CC1D57 /* CalorieCountingKit.h */,
+				26661300246B985600CC1D57 /* Info.plist */,
+				2666132D246B98E600CC1D57 /* FoodItem.swift */,
+				2666132C246B98E600CC1D57 /* FoodEntry.swift */,
+				2666132E246B98E600CC1D57 /* TimePeriod.swift */,
+			);
+			path = CalorieCountingKit;
+			sourceTree = "<group>";
+		};
+		26661309246B985600CC1D57 /* CalorieCountingKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				2666130C246B985600CC1D57 /* Info.plist */,
+				26661336246B993500CC1D57 /* FoodItemTests.swift */,
+				26661334246B992300CC1D57 /* FoodEntryTests.swift */,
+				26661332246B991400CC1D57 /* TimePeriodTests.swift */,
+			);
+			path = CalorieCountingKitTests;
+			sourceTree = "<group>";
+		};
+		26661338246B9C3C00CC1D57 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				2666133A246B9C7500CC1D57 /* Common.xcconfig */,
+				2666133B246B9C7500CC1D57 /* Debug.xcconfig */,
+				26661339246B9C7500CC1D57 /* Release.xcconfig */,
+				2666133F246B9C8300CC1D57 /* Framework.xcconfig */,
+				26661340246B9C8C00CC1D57 /* Tests.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		266612F7246B985600CC1D57 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2666130D246B985600CC1D57 /* CalorieCountingKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		266612FB246B985600CC1D57 /* CalorieCountingKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26661310246B985600CC1D57 /* Build configuration list for PBXNativeTarget "CalorieCountingKit" */;
+			buildPhases = (
+				266612F7246B985600CC1D57 /* Headers */,
+				266612F8246B985600CC1D57 /* Sources */,
+				266612F9246B985600CC1D57 /* Frameworks */,
+				266612FA246B985600CC1D57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalorieCountingKit;
+			productName = CalorieCountingKit;
+			productReference = 266612FC246B985600CC1D57 /* CalorieCountingKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		26661304246B985600CC1D57 /* CalorieCountingKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26661313246B985600CC1D57 /* Build configuration list for PBXNativeTarget "CalorieCountingKitTests" */;
+			buildPhases = (
+				26661301246B985600CC1D57 /* Sources */,
+				26661302246B985600CC1D57 /* Frameworks */,
+				26661303246B985600CC1D57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26661308246B985600CC1D57 /* PBXTargetDependency */,
+			);
+			name = CalorieCountingKitTests;
+			productName = CalorieCountingKitTests;
+			productReference = 26661305246B985600CC1D57 /* CalorieCountingKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		266612F3246B985600CC1D57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Brennan Stehling";
+				TargetAttributes = {
+					266612FB246B985600CC1D57 = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+					26661304246B985600CC1D57 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 266612F6246B985600CC1D57 /* Build configuration list for PBXProject "CalorieCountingKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 266612F2246B985600CC1D57;
+			productRefGroup = 266612FD246B985600CC1D57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				266612FB246B985600CC1D57 /* CalorieCountingKit */,
+				26661304246B985600CC1D57 /* CalorieCountingKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		266612FA246B985600CC1D57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2666133C246B9C7500CC1D57 /* Release.xcconfig in Resources */,
+				2666133D246B9C7500CC1D57 /* Common.xcconfig in Resources */,
+				2666133E246B9C7500CC1D57 /* Debug.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26661303246B985600CC1D57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		266612F8246B985600CC1D57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26966928246BD3E3001820D2 /* JSONRepresentable.swift in Sources */,
+				2696692C246C5DA0001820D2 /* Files.swift in Sources */,
+				2696692A246BD3FF001820D2 /* Storable.swift in Sources */,
+				26966926246BD05A001820D2 /* Store.swift in Sources */,
+				2696692E246C70E6001820D2 /* Logger.swift in Sources */,
+				2666132F246B98E600CC1D57 /* FoodEntry.swift in Sources */,
+				26661331246B98E600CC1D57 /* TimePeriod.swift in Sources */,
+				26661330246B98E600CC1D57 /* FoodItem.swift in Sources */,
+				26661344246BBCE100CC1D57 /* JSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26661301246B985600CC1D57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26661337246B993500CC1D57 /* FoodItemTests.swift in Sources */,
+				26661333246B991400CC1D57 /* TimePeriodTests.swift in Sources */,
+				26661335246B992300CC1D57 /* FoodEntryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26661308246B985600CC1D57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 266612FB246B985600CC1D57 /* CalorieCountingKit */;
+			targetProxy = 26661307246B985600CC1D57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2666130E246B985600CC1D57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2666133B246B9C7500CC1D57 /* Debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2666130F246B985600CC1D57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26661339246B9C7500CC1D57 /* Release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		26661311246B985600CC1D57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2666133F246B9C8300CC1D57 /* Framework.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CalorieCountingKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.CalorieCountingKit;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26661312246B985600CC1D57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2666133F246B9C8300CC1D57 /* Framework.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CalorieCountingKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.CalorieCountingKit;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		26661314246B985600CC1D57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26661340246B9C8C00CC1D57 /* Tests.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalorieCountingKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.CalorieCountingKitTests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26661315246B985600CC1D57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26661340246B9C8C00CC1D57 /* Tests.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CalorieCountingKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acme.CalorieCountingKitTests;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		266612F6246B985600CC1D57 /* Build configuration list for PBXProject "CalorieCountingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2666130E246B985600CC1D57 /* Debug */,
+				2666130F246B985600CC1D57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26661310246B985600CC1D57 /* Build configuration list for PBXNativeTarget "CalorieCountingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26661311246B985600CC1D57 /* Debug */,
+				26661312246B985600CC1D57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26661313246B985600CC1D57 /* Build configuration list for PBXNativeTarget "CalorieCountingKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26661314246B985600CC1D57 /* Debug */,
+				26661315246B985600CC1D57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 266612F3246B985600CC1D57 /* Project object */;
+}
