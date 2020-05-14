@@ -7,7 +7,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(dummyData.foodItems, id: \.uuid) { foodItem in
+                ForEach(dummyData.foodItems.sortedByLabel(), id: \.uuid) { foodItem in
                     HStack {
                         FoodImageView(image: foodItem.image)
                         Text(foodItem.label)

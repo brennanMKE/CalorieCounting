@@ -17,3 +17,17 @@ public struct FoodItem: JSONRepresentable, Equatable {
         self.isDeleted = isDeleted
     }
 }
+
+public extension Array where Element == FoodItem {
+    func sortedByLabel() -> Self {
+        self.sorted { (lhs, rhs) -> Bool in
+            lhs.label < rhs.label
+        }
+    }
+
+    func sortedByCalories() -> Self {
+        self.sorted { (lhs, rhs) -> Bool in
+            lhs.calories < rhs.calories
+        }
+    }
+}

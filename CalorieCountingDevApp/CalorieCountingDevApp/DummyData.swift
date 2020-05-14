@@ -23,7 +23,7 @@ class DummyData: ObservableObject {
     }
 
     func preloadFoodItems() {
-        // TODO: check if there are any food items already stored
+        // check if there are any food items already stored
         // and if not then create instances of models and use the images
         // in the asset catalog to store them and then load them again.
         logInfo("Preloading Food Items")
