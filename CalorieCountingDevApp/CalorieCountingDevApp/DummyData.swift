@@ -18,8 +18,9 @@ class DummyData: ObservableObject {
         FoodItem(label: "Toast", calories: 150, uuid: "toast", isDeleted: false)
     ]
 
-    func loadForPreview() {
+    func loadForPreview() -> Self {
         foodItems = preloadedItems
+        return self
     }
 
     func preloadFoodItems() {
