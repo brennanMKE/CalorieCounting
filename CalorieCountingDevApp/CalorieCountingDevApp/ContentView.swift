@@ -2,8 +2,17 @@ import SwiftUI
 import CalorieCountingKit
 
 struct ContentView: View {
+    @State private var tabSelection = 1
+
     var body: some View {
-        FoodItemListView()
+        TabView(selection: $tabSelection) {
+            FoodItemListView()
+                .font(.title)
+                .tabItem { Text("Food") }.tag(1)
+            Text("Debugging")
+                .font(.title)
+                .tabItem { Text("Debugging") }.tag(2)
+        }
     }
 }
 
