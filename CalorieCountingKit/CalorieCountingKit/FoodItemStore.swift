@@ -22,6 +22,12 @@ public protocol FoodItemStore {
     ///   - image: image
     ///   - foodItem: food item
     func store(image: CGImage, foodItem: FoodItem) throws
+
+    /// Removes a Food Item by marking it as deleted
+    /// - Parameters:
+    ///   - foodItem: food item
+    ///   - closure: result closure
+    func remove(foodItem: FoodItem, closure: @escaping (Result<Bool, Error>) -> Void)
 }
 
 public extension FoodItem {

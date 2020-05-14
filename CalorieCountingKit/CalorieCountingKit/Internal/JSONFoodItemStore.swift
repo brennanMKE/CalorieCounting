@@ -89,4 +89,13 @@ public class JSONFoodItemStore: FoodItemStore {
         let fileURL = imageURL(foodItem: foodItem)
         try imageStore.store(image: image, url: fileURL)
     }
+
+    public func remove(foodItem: FoodItem, closure: @escaping (Result<Bool, Error>) -> Void) {
+        let deletedFoodItem = FoodItem(label: foodItem.label,
+                                       calories: foodItem.calories,
+                                       uuid: foodItem.uuid,
+                                       isDeleted: true)
+        store(foodItem: deletedFoodItem, closure: closure)
+    }
+
 }

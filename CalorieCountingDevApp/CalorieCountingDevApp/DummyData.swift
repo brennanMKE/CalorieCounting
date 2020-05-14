@@ -7,6 +7,19 @@ import os.log
 
 import CalorieCountingKit
 
+extension TimePeriod {
+    static var max: Int {
+        let result = Self.allCases.map { $0.rawValue }.max() ?? 0
+        return result
+    }
+
+    static func randomCase() -> TimePeriod {
+        let value = Int.random(in: 0..<Self.max)
+        let result = TimePeriod(rawValue: value) ?? .morning
+        return result
+    }
+}
+
 class DummyData: ObservableObject {
     @Published var foodItems: [FoodItem] = []
 
@@ -21,6 +34,17 @@ class DummyData: ObservableObject {
     func loadForPreview() -> Self {
         foodItems = preloadedItems
         return self
+    }
+
+    func loadImage(name: String) -> CGImage {
+        guard
+            let url = Bundle.main.url(forResource: name, withExtension: "jpg"),
+            let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
+            let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
+        else {
+            fatalError("Couldn't load image \(name).jpg from main bundle.")
+        }
+        return image
     }
 
     func preloadFoodItems() {
@@ -83,15 +107,76 @@ class DummyData: ObservableObject {
         }
     }
 
-    func loadImage(name: String) -> CGImage {
-        guard
-            let url = Bundle.main.url(forResource: name, withExtension: "jpg"),
-            let imageSource = CGImageSourceCreateWithURL(url as NSURL, nil),
-            let image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
-        else {
-            fatalError("Couldn't load image \(name).jpg from main bundle.")
+    private func randomFoodEntry(date: Date) -> FoodEntry? {
+        guard let foodItem = foodItems.randomElement() else { return nil }
+        let timePeriod = TimePeriod.randomCase()
+        let foodEntry = FoodEntry(date: date, timePeriod: timePeriod, foodItem: foodItem)
+        return foodEntry
+    }
+
+    private func generateRandomFoodEntries(days: Int, entriesPerDay: Int) -> [FoodEntry] {
+        // enter up to a total of entries per day selecting a random food item and time period for each day
+        var foodEntries: [FoodEntry] = []
+
+        let date = Date()
+        let calendar = Calendar(identifier: .iso8601)
+        let day  = calendar.ordinality(of: .day, in: .year, for: date) ?? 0
+        let year = calendar.component(.year, from: date)
+        for value in 0..<days {
+            let components = DateComponents(calendar: calendar, year: year, day: day - (value))
+            if let date = components.date {
+                let entriesCount = Int.random(in: 0..<entriesPerDay)
+                for _ in 0..<entriesCount {
+                    if let foodEntry = randomFoodEntry(date: date) {
+                        foodEntries.append(foodEntry)
+                    }
+                }
+            }
         }
-        return image
+
+        return foodEntries
+    }
+
+    func populateRandomFoodEntries(days: Int, entriesPerDay: Int, closure: @escaping (Result<Int, Error>) -> Void) {
+        let foodEntries = generateRandomFoodEntries(days: days, entriesPerDay: entriesPerDay)
+        os_log(.info, log: Logger.devApp, "Generated %i food entries", foodEntries.count)
+
+        var index = 0
+        var advanceNext: () -> Void = {}
+        let storeEntry: () -> Void = {
+            assert(index < foodEntries.count)
+            let foodEntry = foodEntries[index]
+            ModelStores.foodEntryStore.store(foodEntry: foodEntry) { result in
+                switch result {
+                case .success:
+                    if index < foodEntries.count - 1 {
+                        advanceNext()
+                    } else {
+                         os_log(.info, log: Logger.devApp, "Stored %i food entries", foodEntries.count)
+                        closure(.success(foodEntries.count))
+                    }
+                case .failure(let error):
+                    logError(error)
+                    closure(.failure(error))
+                }
+            }
+        }
+
+        advanceNext = {
+            index += 1
+            storeEntry()
+        }
+
+        storeEntry()
+    }
+
+    func populateRandomFoodEntries(closure: @escaping (Result<Int, Error>) -> Void) {
+        populateRandomFoodEntries(days: 30, entriesPerDay: 10, closure: closure)
+    }
+
+    func purgeFoodEntries(closure: @escaping (Result<Int, Error>) -> Void) {
+        // completely delete the Food Item files
+        ModelStores.foodEntryStore.purge(closure: closure)
     }
 
 }

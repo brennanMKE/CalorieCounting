@@ -56,7 +56,7 @@ class FileStore {
         var fileURLs: [URL] = []
         if !isDirectory(url: url) {
             if filter(url.path) {
-                os_log(.debug, log: Logger.dataStore, "Collected files: %s", url.lastPathComponent)
+                os_log(.debug, log: Logger.dataStore, "Collected file: %s", url.lastPathComponent)
                 fileURLs.append(url)
             } else {
                 os_log(.debug, log: Logger.dataStore, "File skipped: %s", url.lastPathComponent)

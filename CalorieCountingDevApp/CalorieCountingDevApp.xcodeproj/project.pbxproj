@@ -31,6 +31,7 @@
 		26B51AD5246CC08B00862B84 /* carrots.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD0246CC08B00862B84 /* carrots.jpg */; };
 		26B51AD6246CC08B00862B84 /* eggs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD1246CC08B00862B84 /* eggs.jpg */; };
 		26B51AD7246CC08B00862B84 /* burger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD2246CC08B00862B84 /* burger.jpg */; };
+		26BF14E9246D1C5E0087BA49 /* DebuggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BF14E8246D1C5E0087BA49 /* DebuggingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		26B51AD0246CC08B00862B84 /* carrots.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carrots.jpg; sourceTree = "<group>"; };
 		26B51AD1246CC08B00862B84 /* eggs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eggs.jpg; sourceTree = "<group>"; };
 		26B51AD2246CC08B00862B84 /* burger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burger.jpg; sourceTree = "<group>"; };
+		26BF14E8246D1C5E0087BA49 /* DebuggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				26661289246B959300CC1D57 /* ContentView.swift */,
 				2652C68F246CEEF200831015 /* FoodItemListView.swift */,
 				2652C68B246CDFB300831015 /* FoodImageView.swift */,
+				26BF14E8246D1C5E0087BA49 /* DebuggingView.swift */,
 				26B51AC1246CBE1600862B84 /* DummyData.swift */,
 				2652C68D246CE36D00831015 /* DataModelExtensions.swift */,
 				2666128B246B959400CC1D57 /* Assets.xcassets */,
@@ -375,6 +378,7 @@
 				26661286246B959300CC1D57 /* AppDelegate.swift in Sources */,
 				2652C68E246CE36D00831015 /* DataModelExtensions.swift in Sources */,
 				26661288246B959300CC1D57 /* SceneDelegate.swift in Sources */,
+				26BF14E9246D1C5E0087BA49 /* DebuggingView.swift in Sources */,
 				2666128A246B959300CC1D57 /* ContentView.swift in Sources */,
 				2652C690246CEEF200831015 /* FoodItemListView.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ struct ContentView: View {
             FoodItemListView()
                 .font(.title)
                 .tabItem { Text("Food") }.tag(1)
-            Text("Debugging")
+            DebuggingView()
                 .font(.title)
                 .tabItem { Text("Debugging") }.tag(2)
         }

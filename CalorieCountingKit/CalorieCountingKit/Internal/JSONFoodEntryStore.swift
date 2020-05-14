@@ -84,4 +84,30 @@ class JSONFoodEntryStore: FoodEntryStore {
         }
     }
 
+    public func remove(foodEntry: FoodEntry, closure: @escaping (Result<Bool, Error>) -> Void) {
+        let deletedFoodEntry = FoodEntry(date: foodEntry.date,
+                                         timePeriod: foodEntry.timePeriod,
+                                         foodItemUuid: foodEntry.foodItemUuid,
+                                         uuid: foodEntry.uuid,
+                                         isDeleted:  true)
+        store(foodEntry: deletedFoodEntry, closure: closure)
+    }
+
+    public func purge(closure: @escaping (Result<Int, Error>) -> Void) {
+        os_log(.debug, log: Logger.dataStore, "Purging Food Entry files")
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+
+            do {
+                let contentsURLs = try FileManager.default.contentsOfDirectory(at: self.foodEntriesDirectoryURL, includingPropertiesForKeys: nil, options: [])
+                try contentsURLs.forEach { contentsURL in
+                    try FileManager.default.removeItem(at: contentsURL)
+                }
+                closure(.success(contentsURLs.count))
+            } catch {
+                closure(.failure(error))
+            }
+        }
+    }
+
 }

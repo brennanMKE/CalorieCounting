@@ -11,6 +11,16 @@ public protocol FoodEntryStore {
     ///   - foodEntry: food entry
     ///   - closure: result closure
     func store(foodEntry: FoodEntry, closure: @escaping (Result<Bool, Error>) -> Void)
+
+
+    /// Removes a Food Entry by marking it as deleted
+    /// - Parameters:
+    ///   - foodEntry: food entry
+    ///   - closure: result closure
+    func remove(foodEntry: FoodEntry, closure: @escaping (Result<Bool, Error>) -> Void)
+
+    /// Completedly clear out all  Food Entry files (Dangerous)
+    func purge(closure: @escaping (Result<Int, Error>) -> Void)
 }
 
 var DefaultFoodEntryStore: FoodEntryStore? = nil
