@@ -8,8 +8,10 @@ class JSONFoodEntryStore: FoodEntryStore {
     }
 
     let FoodEntriesDirectoryName = "FoodEntries"
+    static let FoodEntriesFilterPattern = #".+\d+/\d+/\d+/.+\.json$"#
 
     let fileStore: FileStore
+    let filterRegex: NSRegularExpression
 
     var foodEntriesDirectoryURL: URL {
         let result = fileStore.baseURL.appendingPathComponent(FoodEntriesDirectoryName)
@@ -18,10 +20,12 @@ class JSONFoodEntryStore: FoodEntryStore {
 
     init(store: FileStore = FileStore()) {
         self.fileStore = store
+        self.filterRegex = try! NSRegularExpression(pattern: Self.FoodEntriesFilterPattern)
     }
 
     func filesFilter(path: String) -> Bool {
-        let result = path.hasSuffix(".json")
+        let nsrange = NSRange(path.startIndex..<path.endIndex, in: path)
+        let result = filterRegex.matches(in: path, options: [], range: nsrange).count > 0
         return result
     }
 

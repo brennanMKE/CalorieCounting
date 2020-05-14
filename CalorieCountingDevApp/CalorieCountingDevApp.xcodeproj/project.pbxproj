@@ -14,6 +14,9 @@
 		26325FB4246C7D6000586A5D /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 26325FAF246C7D6000586A5D /* Release.xcconfig */; };
 		26325FB5246C7D6000586A5D /* Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 26325FB0246C7D6000586A5D /* Tests.xcconfig */; };
 		26325FB6246C7D6000586A5D /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 26325FB1246C7D6000586A5D /* Debug.xcconfig */; };
+		2652C689246CD4F900831015 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652C688246CD4F900831015 /* Logger.swift */; };
+		2652C68C246CDFB300831015 /* FoodImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652C68B246CDFB300831015 /* FoodImageView.swift */; };
+		2652C68E246CE36D00831015 /* DataModelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2652C68D246CE36D00831015 /* DataModelExtensions.swift */; };
 		26661286246B959300CC1D57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661285246B959300CC1D57 /* AppDelegate.swift */; };
 		26661288246B959300CC1D57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661287246B959300CC1D57 /* SceneDelegate.swift */; };
 		2666128A246B959300CC1D57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26661289246B959300CC1D57 /* ContentView.swift */; };
@@ -21,6 +24,12 @@
 		2666128F246B959400CC1D57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2666128E246B959400CC1D57 /* Preview Assets.xcassets */; };
 		26661292246B959400CC1D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26661290246B959400CC1D57 /* LaunchScreen.storyboard */; };
 		2666129D246B959500CC1D57 /* CalorieCountingDevAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666129C246B959500CC1D57 /* CalorieCountingDevAppTests.swift */; };
+		26B51AC2246CBE1600862B84 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51AC1246CBE1600862B84 /* DummyData.swift */; };
+		26B51AD3246CC08B00862B84 /* hotdog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51ACE246CC08B00862B84 /* hotdog.jpg */; };
+		26B51AD4246CC08B00862B84 /* toast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51ACF246CC08B00862B84 /* toast.jpg */; };
+		26B51AD5246CC08B00862B84 /* carrots.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD0246CC08B00862B84 /* carrots.jpg */; };
+		26B51AD6246CC08B00862B84 /* eggs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD1246CC08B00862B84 /* eggs.jpg */; };
+		26B51AD7246CC08B00862B84 /* burger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51AD2246CC08B00862B84 /* burger.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +83,9 @@
 		26325FAF246C7D6000586A5D /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		26325FB0246C7D6000586A5D /* Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		26325FB1246C7D6000586A5D /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		2652C688246CD4F900831015 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		2652C68B246CDFB300831015 /* FoodImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageView.swift; sourceTree = "<group>"; };
+		2652C68D246CE36D00831015 /* DataModelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelExtensions.swift; sourceTree = "<group>"; };
 		26661282246B959300CC1D57 /* CalorieCountingDevApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalorieCountingDevApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26661285246B959300CC1D57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26661287246B959300CC1D57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +98,12 @@
 		2666129C246B959500CC1D57 /* CalorieCountingDevAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCountingDevAppTests.swift; sourceTree = "<group>"; };
 		2666129E246B959500CC1D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26661316246B986C00CC1D57 /* CalorieCountingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CalorieCountingKit.xcodeproj; path = ../CalorieCountingKit/CalorieCountingKit.xcodeproj; sourceTree = "<group>"; };
+		26B51AC1246CBE1600862B84 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		26B51ACE246CC08B00862B84 /* hotdog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotdog.jpg; sourceTree = "<group>"; };
+		26B51ACF246CC08B00862B84 /* toast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toast.jpg; sourceTree = "<group>"; };
+		26B51AD0246CC08B00862B84 /* carrots.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carrots.jpg; sourceTree = "<group>"; };
+		26B51AD1246CC08B00862B84 /* eggs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eggs.jpg; sourceTree = "<group>"; };
+		26B51AD2246CC08B00862B84 /* burger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burger.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +161,18 @@
 		26661284246B959300CC1D57 /* CalorieCountingDevApp */ = {
 			isa = PBXGroup;
 			children = (
+				26B51AC3246CC04500862B84 /* Resources */,
 				26661285246B959300CC1D57 /* AppDelegate.swift */,
 				26661287246B959300CC1D57 /* SceneDelegate.swift */,
 				26661289246B959300CC1D57 /* ContentView.swift */,
+				2652C68B246CDFB300831015 /* FoodImageView.swift */,
+				26B51AC1246CBE1600862B84 /* DummyData.swift */,
+				2652C68D246CE36D00831015 /* DataModelExtensions.swift */,
 				2666128B246B959400CC1D57 /* Assets.xcassets */,
 				26661290246B959400CC1D57 /* LaunchScreen.storyboard */,
 				26661293246B959400CC1D57 /* Info.plist */,
 				2666128D246B959400CC1D57 /* Preview Content */,
+				2652C688246CD4F900831015 /* Logger.swift */,
 			);
 			path = CalorieCountingDevApp;
 			sourceTree = "<group>";
@@ -193,6 +216,18 @@
 				2666131E246B986E00CC1D57 /* CalorieCountingKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		26B51AC3246CC04500862B84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				26B51AD2246CC08B00862B84 /* burger.jpg */,
+				26B51AD0246CC08B00862B84 /* carrots.jpg */,
+				26B51AD1246CC08B00862B84 /* eggs.jpg */,
+				26B51ACE246CC08B00862B84 /* hotdog.jpg */,
+				26B51ACF246CC08B00862B84 /* toast.jpg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,13 +337,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				26325FB3246C7D6000586A5D /* Common.xcconfig in Resources */,
+				26B51AD6246CC08B00862B84 /* eggs.jpg in Resources */,
 				26325FB2246C7D6000586A5D /* App.xcconfig in Resources */,
+				26B51AD7246CC08B00862B84 /* burger.jpg in Resources */,
 				26325FB4246C7D6000586A5D /* Release.xcconfig in Resources */,
 				26661292246B959400CC1D57 /* LaunchScreen.storyboard in Resources */,
 				26325FB6246C7D6000586A5D /* Debug.xcconfig in Resources */,
+				26B51AD5246CC08B00862B84 /* carrots.jpg in Resources */,
+				26B51AD3246CC08B00862B84 /* hotdog.jpg in Resources */,
 				26325FB5246C7D6000586A5D /* Tests.xcconfig in Resources */,
 				2666128F246B959400CC1D57 /* Preview Assets.xcassets in Resources */,
 				2666128C246B959400CC1D57 /* Assets.xcassets in Resources */,
+				26B51AD4246CC08B00862B84 /* toast.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +366,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2652C68C246CDFB300831015 /* FoodImageView.swift in Sources */,
+				2652C689246CD4F900831015 /* Logger.swift in Sources */,
+				26B51AC2246CBE1600862B84 /* DummyData.swift in Sources */,
 				26661286246B959300CC1D57 /* AppDelegate.swift in Sources */,
+				2652C68E246CE36D00831015 /* DataModelExtensions.swift in Sources */,
 				26661288246B959300CC1D57 /* SceneDelegate.swift in Sources */,
 				2666128A246B959300CC1D57 /* ContentView.swift in Sources */,
 			);

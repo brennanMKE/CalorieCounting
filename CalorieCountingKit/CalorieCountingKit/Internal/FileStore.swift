@@ -28,13 +28,14 @@ class FileStore {
         let exists = FileManager.default.fileExists(atPath: directoryURL.path, isDirectory:&isDir)
         if !exists {
             do {
+                os_log(.debug, log: Logger.dataStore, "Creating directory: %s", directoryURL.path)
                 try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
             } catch {
                 os_log(.error, log: Logger.dataStore, "Failed to create directory")
                 throw Failure.failedToCreateDirectory(error)
             }
         } else if exists && !isDir.boolValue {
-            os_log(.error, log: Logger.dataStore, "File does not exist")
+            os_log(.error, log: Logger.dataStore, "File exists at directory path")
             throw Failure.fileExistsAtDirectoryPath
         }
     }
@@ -55,10 +56,14 @@ class FileStore {
         var fileURLs: [URL] = []
         if !isDirectory(url: url) {
             if filter(url.path) {
+                os_log(.debug, log: Logger.dataStore, "Collected files: %s", url.lastPathComponent)
                 fileURLs.append(url)
+            } else {
+                os_log(.debug, log: Logger.dataStore, "File skipped: %s", url.lastPathComponent)
             }
         }
-        if let childURLs = try? childURLs(url: url) {
+        else if let childURLs = try? childURLs(url: url) {
+            os_log(.debug, log: Logger.dataStore, "Collecting files: %s", url.lastPathComponent)
             childURLs.forEach {
                 fileURLs.append(contentsOf: collectFiles(url: $0, filter: filter))
             }

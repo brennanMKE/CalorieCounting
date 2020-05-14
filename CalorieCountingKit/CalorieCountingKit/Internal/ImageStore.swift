@@ -20,6 +20,8 @@ class ImageStore {
     }
 
     func store(image: CGImage, url: URL) throws {
+        let directoryURL = url.deletingLastPathComponent()
+        try fileStore.createDirectoryIfNotExists(directoryURL)
         if let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeJPEG, 1, nil) {
             CGImageDestinationAddImage(destination, image, nil)
             CGImageDestinationFinalize(destination)

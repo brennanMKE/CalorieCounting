@@ -2,16 +2,32 @@ import SwiftUI
 import CalorieCountingKit
 
 struct ContentView: View {
+    @EnvironmentObject private var dummyData: DummyData
+
     var body: some View {
-        Text("Dev Ap")
+        NavigationView {
+            List {
+                ForEach(dummyData.foodItems, id: \.uuid) { foodItem in
+                    HStack {
+                        FoodImageView(image: foodItem.image)
+                        Text(foodItem.label)
+                        Spacer()
+                        Text("\(foodItem.calories)")
+                            .foregroundColor(.gray)
+                    }
+                }
+                .navigationBarTitle(Text("Food Items"))
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
 
-//    image = Image(cgImage, scale: CGFloat(ImageStore.scale), label: Text(name))
-    
     static var previews: some View {
-        ContentView()
+        let dummyData = DummyData()
+        dummyData.loadForPreview()
+        return ContentView()
+            .environmentObject(dummyData)
     }
 }

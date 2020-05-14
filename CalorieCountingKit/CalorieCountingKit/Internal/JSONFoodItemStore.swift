@@ -9,11 +9,9 @@ public class JSONFoodItemStore: FoodItemStore {
     }
 
     let FoodItemsDirectoryName = "FoodItems"
-    static let FoodEntriesFilterPattern = #".+\d+/\d+/\d+/.+\.json$"#
 
     let fileStore: FileStore
     let imageStore: ImageStore
-    let filterRegex: NSRegularExpression
 
     var foodEntriesDirectoryURL: URL {
         let result = fileStore.baseURL.appendingPathComponent(FoodItemsDirectoryName)
@@ -23,15 +21,10 @@ public class JSONFoodItemStore: FoodItemStore {
     init(fileStore: FileStore = FileStore(), imageStore: ImageStore? = nil) {
         self.fileStore = fileStore
         self.imageStore = imageStore ?? ImageStore(fileStore: fileStore)
-        self.filterRegex = try! NSRegularExpression(pattern: Self.FoodEntriesFilterPattern)
     }
 
     func filesFilter(path: String) -> Bool {
-        guard path.hasPrefix(fileStore.baseURL.path) else {
-            return false
-        }
-        let nsrange = NSRange(path.startIndex..<path.endIndex, in: path)
-        let result = filterRegex.matches(in: path, options: [], range: nsrange).count > 0
+        let result = path.hasSuffix(".json")
         return result
     }
 
@@ -45,10 +38,11 @@ public class JSONFoodItemStore: FoodItemStore {
 
     public func loadAll(closure: @escaping (Result<[FoodItem], Error>) -> Void) {
         // run the work with async behavior
-        os_log(.debug, log: Logger.dataStore, "Loading Food Item files")
+        os_log(.info, log: Logger.dataStore, "Loading Food Item files: %s", foodEntriesDirectoryURL.path)
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             let jsonFiles = self.fileStore.collectFiles(url: self.foodEntriesDirectoryURL, filter: self.filesFilter)
+            os_log(.info, log: Logger.dataStore, "Found %i json files", jsonFiles.count)
             do {
                 let foodItems = try jsonFiles.map { url -> FoodItem in
                     let result: FoodItem
@@ -60,6 +54,7 @@ public class JSONFoodItemStore: FoodItemStore {
                     }
                     return result
                 }
+                os_log(.info, log: Logger.dataStore, "Loaded %i Food Items", foodItems.count)
                 closure(Result.success(foodItems))
             } catch Failure.failedToLoadFoodItem {
                 closure(Result.failure(Failure.failedToLoadFoodItem))

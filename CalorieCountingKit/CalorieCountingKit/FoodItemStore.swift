@@ -24,10 +24,10 @@ public protocol FoodItemStore {
     func store(image: CGImage, foodItem: FoodItem) throws
 }
 
-extension FoodItem {
+public extension FoodItem {
 
     // Convenience property to get the image for a Food Item
-    public var image: CGImage? {
+    var cgImage: CGImage? {
         let image = try? ModelStores.foodItemStore.loadImage(foodItem: self)
         return image
     }
