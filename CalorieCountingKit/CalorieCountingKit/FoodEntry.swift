@@ -1,7 +1,7 @@
 import Foundation
 import os.log
 
-public struct FoodEntry: JSONRepresentable, Equatable {
+public struct FoodEntry: JSONRepresentable, SoftDeletable, Equatable {
     public let date: Date
     public let timePeriod: TimePeriod
     public let foodItemUuid: String

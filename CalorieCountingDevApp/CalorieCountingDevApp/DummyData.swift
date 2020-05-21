@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 import CoreGraphics
 import CoreServices
 import ImageIO
@@ -20,8 +21,34 @@ extension TimePeriod {
     }
 }
 
+enum FoodItemSort: Int, CaseIterable, RawRepresentable {
+    case label = 1
+    case calories = 2
+
+    static var `default`: Self {
+        return .label
+    }
+
+    var name: String {
+        let result: String
+        switch self {
+        case .label:
+            result = "Name"
+        case .calories:
+            result = "Calories"
+        }
+        return result
+    }
+
+    var tag: Int {
+        rawValue
+    }
+}
+
 class DummyData: ObservableObject {
     @Published var foodItems: [FoodItem] = []
+    @Published var selectedFoodItem: FoodItem?
+    var foodItemSort: FoodItemSort = .default
 
     private let preloadedItems = [
         FoodItem(label: "Burger", calories: 500, uuid: "burger", isDeleted: false),
@@ -32,7 +59,8 @@ class DummyData: ObservableObject {
     ]
 
     func loadForPreview() -> Self {
-        foodItems = preloadedItems
+        let sorted = self.foodItemSort == .label ? preloadedItems.sortedByLabel() : preloadedItems.sortedByCalories()
+        foodItems = sorted
         return self
     }
 
@@ -58,19 +86,70 @@ class DummyData: ObservableObject {
             switch result {
             case .success(let foodItems):
                 if foodItems.count > 0 {
-                    self.foodItems = foodItems
+                    let visibleItems = foodItems.visibleItems
+                    let sorted = self.foodItemSort == .label ? visibleItems.sortedByLabel() : visibleItems.sortedByCalories()
+                    self.foodItems = sorted
                 } else {
                     self.populateFoodItems { result in
                         switch result {
                         case .success(let foodItems):
                             os_log(.info, log: Logger.devApp, "Updating observed food items with %i items", foodItems.count)
+                            let visibleItems = foodItems.visibleItems
+                            let sorted = self.foodItemSort == .label ? visibleItems.sortedByLabel() : visibleItems.sortedByCalories()
                             DispatchQueue.main.sync {
-                                self.foodItems = foodItems
+                                self.foodItems = sorted
                             }
                         case .failure(let error):
                             logError(error)
                         }
                     }
+                }
+            case .failure(let error):
+                logError(error)
+            }
+        }
+    }
+
+    func sortFoodItems(by sort: FoodItemSort) {
+        print(#function, sort.name)
+        guard sort != foodItemSort else { return }
+        foodItemSort = sort
+        let sorted = self.foodItemSort == .label ? foodItems.sortedByLabel() : foodItems.sortedByCalories()
+        print("first:", sorted.first?.label ?? "none")
+        foodItems = sorted
+    }
+
+    func removeFoodItems(at indexSet: IndexSet) {
+        indexSet.forEach {
+            let foodItem = foodItems[$0]
+            ModelStores.foodItemStore.remove(foodItem: foodItem) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    os_log(.info, log: Logger.devApp, "removed Food Item: %s", String(describing: foodItem))
+                    self.reloadFoodItems()
+                case .failure(let error):
+                    logError(error)
+                }
+            }
+            print("removing item:", $0)
+        }
+    }
+
+    func reloadFoodItems() {
+        logInfo(#function)
+        ModelStores.foodItemStore.loadAll { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let foodItems):
+                let visibleItems = foodItems.visibleItems
+                let sorted = self.foodItemSort == .label ? visibleItems.sortedByLabel() : visibleItems.sortedByCalories()
+                os_log(.info, log: Logger.devApp, "reloaded %i food items", sorted.count)
+                sorted.forEach {
+                    os_log(.info, log: Logger.devApp, "food item: %s", String(describing: $0))
+                }
+                DispatchQueue.main.sync {
+                    self.foodItems = sorted
                 }
             case .failure(let error):
                 logError(error)
@@ -177,6 +256,65 @@ class DummyData: ObservableObject {
     func purgeFoodEntries(closure: @escaping (Result<Int, Error>) -> Void) {
         // completely delete the Food Item files
         ModelStores.foodEntryStore.purge(closure: closure)
+    }
+
+    func restoreDeletedFoodItems(closure: @escaping (Result<Int, Error>) -> Void ) {
+        let foodItemStore = ModelStores.foodItemStore
+        foodItemStore.loadAll { result in
+            do {
+                let deleted = try result.get().filter { $0.isDeleted }
+                guard deleted.count > 0 else {
+                    closure(.success(0))
+                    return
+                }
+
+                deleted.forEach {
+                    os_log(.info, log: Logger.devApp, "food item: %s", String(describing: $0))
+                }
+
+                // restore each deleted item in sequence
+                var index = 0
+
+                var isDone: Bool {
+                    let result = index == deleted.count - 1
+                    return result
+                }
+
+                var step: (() -> Void)? = nil
+
+                let restore: () -> Void = {
+                    assert(index < deleted.count)
+                    let foodItem = deleted[index]
+                    assert(foodItem.isDeleted)
+                    let restored = FoodItem(label: foodItem.label, calories: foodItem.calories, uuid: foodItem.uuid, isDeleted: false)
+
+                    ModelStores.foodItemStore.store(foodItem: restored) { result in
+                        do {
+                            // value is always true so it can be discarded
+                            _ = try result.get()
+                            step?()
+                        } catch {
+                            closure(.failure(error))
+                        }
+                    }
+                }
+
+                step = {
+                    if !isDone {
+                        index += 1
+                        restore()
+                    } else {
+                        closure(.success(index + 1))
+                    }
+                }
+
+                restore()
+            }
+            catch {
+                logError(error)
+                closure(.failure(error))
+            }
+        }
     }
 
 }

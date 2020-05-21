@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FoodImageView: View {
     var image: Image?
-    let strokeColor: Color = Color(red: 0.9, green: 0.9, blue: 0.9)
+    let strokeColor = Color("ImageStroke")
 
     var body: some View {
         (image ?? Image("Missing"))
@@ -11,6 +11,14 @@ struct FoodImageView: View {
             .overlay(Circle().stroke(strokeColor, lineWidth: 4))
             .frame(width: 50, height: 50, alignment: .center)
             .clipShape(Circle())
+            .onAppear {
+                logInfo("displaying FoodEntryModalView")
+                if self.image == nil {
+                    logInfo("image is nil")
+                } else {
+                    logInfo("image is not nil")
+                }
+            }
     }
 }
 

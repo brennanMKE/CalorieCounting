@@ -1,7 +1,7 @@
 import SwiftUI
 import CalorieCountingKit
 
-let DevAppAccentColor: Color = Color(red: 0.094, green: 0.29, blue: 0.95)
+let DevAppAccentColor = Color("Accent")
 
 struct ContentView: View {
     @State private var tabSelection = 1

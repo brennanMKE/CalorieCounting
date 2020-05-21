@@ -6,28 +6,6 @@ import os.log
 struct DebuggingView: View {
     @EnvironmentObject private var dummyData: DummyData
 
-    func populateFoodEntries() {
-        dummyData.populateRandomFoodEntries() { result in
-            switch result {
-            case .success(let count):
-                os_log(.info, log: Logger.devApp, "Populated %i food entries", count)
-            case .failure(let error):
-                logError(error)
-            }
-        }
-    }
-
-    func purgeFoodEntries() {
-        dummyData.purgeFoodEntries { result in
-            switch result {
-            case .success(let count):
-                os_log(.info, log: Logger.devApp, "Purged %i items", count)
-            case .failure(let error):
-                logError(error)
-            }
-        }
-    }
-
     var body: some View {
         NavigationView {
             List {
@@ -39,8 +17,46 @@ struct DebuggingView: View {
                     Text("Purge All Food Entries")
                         .font(.title)
                 }
+                Button(action: { self.restoreDeletedFoodItems() }) {
+                    Text("Restore Deleted Food Items")
+                        .font(.title)
+                }
             }
             .navigationBarTitle(Text("Debugging"))
+        }
+    }
+
+    private func populateFoodEntries() {
+        dummyData.populateRandomFoodEntries() { result in
+            switch result {
+            case .success(let count):
+                os_log(.info, log: Logger.devApp, "Populated %i food entries", count)
+            case .failure(let error):
+                logError(error)
+            }
+        }
+    }
+
+    private func purgeFoodEntries() {
+        dummyData.purgeFoodEntries { result in
+            switch result {
+            case .success(let count):
+                os_log(.info, log: Logger.devApp, "Purged %i items", count)
+            case .failure(let error):
+                logError(error)
+            }
+        }
+    }
+
+    private func restoreDeletedFoodItems() {
+        dummyData.restoreDeletedFoodItems { result in
+            do {
+                let count = try result.get()
+                os_log(.info, log: Logger.devApp, "restored %i deleted food items", count)
+                self.dummyData.reloadFoodItems()
+            } catch {
+                logError(error)
+            }
         }
     }
 }

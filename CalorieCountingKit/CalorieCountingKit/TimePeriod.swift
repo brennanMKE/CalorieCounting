@@ -26,10 +26,17 @@ public enum TimePeriod: Int, CaseIterable, JSONRepresentable {
             self = .lateNight
         }
     }
-}
 
-extension TimePeriod: CustomStringConvertible {
-    public var description: String {
+    public static var range: ClosedRange<Int> {
+        let result = TimePeriod.morning.rawValue ... TimePeriod.lateNight.rawValue
+        return result
+    }
+
+    public var tag: Int {
+        rawValue
+    }
+
+    public var name: String {
         let result: String
         switch self {
             case .morning:
@@ -45,6 +52,12 @@ extension TimePeriod: CustomStringConvertible {
         }
 
         return result
+    }
+}
+
+extension TimePeriod: CustomStringConvertible {
+    public var description: String {
+        name
     }
 
 }

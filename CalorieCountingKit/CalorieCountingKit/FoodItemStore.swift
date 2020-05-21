@@ -28,6 +28,7 @@ public protocol FoodItemStore {
     ///   - foodItem: food item
     ///   - closure: result closure
     func remove(foodItem: FoodItem, closure: @escaping (Result<Bool, Error>) -> Void)
+
 }
 
 public extension FoodItem {

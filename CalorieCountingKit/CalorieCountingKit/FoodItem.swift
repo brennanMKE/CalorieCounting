@@ -1,7 +1,7 @@
 import Foundation
 import CoreGraphics
 
-public struct FoodItem: JSONRepresentable, Equatable {
+public struct FoodItem: JSONRepresentable, SoftDeletable, Equatable {
     public let label: String
     public let calories: Int
     public let uuid: String
@@ -15,6 +15,13 @@ public struct FoodItem: JSONRepresentable, Equatable {
         self.calories = calories
         self.uuid = uuid
         self.isDeleted = isDeleted
+    }
+}
+
+extension FoodItem: CustomStringConvertible {
+    public var description: String {
+        let result = "\(label) - \(calories) [\(uuid), \(isDeleted))]"
+        return result
     }
 }
 

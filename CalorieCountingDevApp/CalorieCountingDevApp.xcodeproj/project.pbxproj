@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261DEA892476E70E0038DB46 /* TimePeriodPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261DEA882476E70E0038DB46 /* TimePeriodPicker.swift */; };
 		26325F93246C7AD300586A5D /* CalorieCountingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2666131C246B986E00CC1D57 /* CalorieCountingKit.framework */; };
 		26325F94246C7AD300586A5D /* CalorieCountingKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2666131C246B986E00CC1D57 /* CalorieCountingKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26325FB2246C7D6000586A5D /* App.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 26325FAD246C7D6000586A5D /* App.xcconfig */; };
@@ -25,6 +26,9 @@
 		2666128F246B959400CC1D57 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2666128E246B959400CC1D57 /* Preview Assets.xcassets */; };
 		26661292246B959400CC1D57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26661290246B959400CC1D57 /* LaunchScreen.storyboard */; };
 		2666129D246B959500CC1D57 /* CalorieCountingDevAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666129C246B959500CC1D57 /* CalorieCountingDevAppTests.swift */; };
+		268CF5CC24750EB500896FB8 /* FoodEntryModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CF5CB24750EB500896FB8 /* FoodEntryModalView.swift */; };
+		268CF5F02475195C00896FB8 /* FoodItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268CF5EF2475195C00896FB8 /* FoodItemRowView.swift */; };
+		2693D87B246DE9FA00299BD3 /* FoodEntryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693D87A246DE9FA00299BD3 /* FoodEntryFormView.swift */; };
 		26B51AC2246CBE1600862B84 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B51AC1246CBE1600862B84 /* DummyData.swift */; };
 		26B51AD3246CC08B00862B84 /* hotdog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51ACE246CC08B00862B84 /* hotdog.jpg */; };
 		26B51AD4246CC08B00862B84 /* toast.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26B51ACF246CC08B00862B84 /* toast.jpg */; };
@@ -80,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		261DEA882476E70E0038DB46 /* TimePeriodPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriodPicker.swift; sourceTree = "<group>"; };
 		26325FAD246C7D6000586A5D /* App.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = App.xcconfig; sourceTree = "<group>"; };
 		26325FAE246C7D6000586A5D /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		26325FAF246C7D6000586A5D /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -101,6 +106,9 @@
 		2666129C246B959500CC1D57 /* CalorieCountingDevAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCountingDevAppTests.swift; sourceTree = "<group>"; };
 		2666129E246B959500CC1D57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26661316246B986C00CC1D57 /* CalorieCountingKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CalorieCountingKit.xcodeproj; path = ../CalorieCountingKit/CalorieCountingKit.xcodeproj; sourceTree = "<group>"; };
+		268CF5CB24750EB500896FB8 /* FoodEntryModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryModalView.swift; sourceTree = "<group>"; };
+		268CF5EF2475195C00896FB8 /* FoodItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemRowView.swift; sourceTree = "<group>"; };
+		2693D87A246DE9FA00299BD3 /* FoodEntryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEntryFormView.swift; sourceTree = "<group>"; };
 		26B51AC1246CBE1600862B84 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		26B51ACE246CC08B00862B84 /* hotdog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotdog.jpg; sourceTree = "<group>"; };
 		26B51ACF246CC08B00862B84 /* toast.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toast.jpg; sourceTree = "<group>"; };
@@ -168,11 +176,15 @@
 				26B51AC3246CC04500862B84 /* Resources */,
 				26661285246B959300CC1D57 /* AppDelegate.swift */,
 				26661287246B959300CC1D57 /* SceneDelegate.swift */,
+				26B51AC1246CBE1600862B84 /* DummyData.swift */,
 				26661289246B959300CC1D57 /* ContentView.swift */,
 				2652C68F246CEEF200831015 /* FoodItemListView.swift */,
+				268CF5EF2475195C00896FB8 /* FoodItemRowView.swift */,
 				2652C68B246CDFB300831015 /* FoodImageView.swift */,
+				268CF5CB24750EB500896FB8 /* FoodEntryModalView.swift */,
+				2693D87A246DE9FA00299BD3 /* FoodEntryFormView.swift */,
+				261DEA882476E70E0038DB46 /* TimePeriodPicker.swift */,
 				26BF14E8246D1C5E0087BA49 /* DebuggingView.swift */,
-				26B51AC1246CBE1600862B84 /* DummyData.swift */,
 				2652C68D246CE36D00831015 /* DataModelExtensions.swift */,
 				2666128B246B959400CC1D57 /* Assets.xcassets */,
 				26661290246B959400CC1D57 /* LaunchScreen.storyboard */,
@@ -372,11 +384,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261DEA892476E70E0038DB46 /* TimePeriodPicker.swift in Sources */,
 				2652C68C246CDFB300831015 /* FoodImageView.swift in Sources */,
 				2652C689246CD4F900831015 /* Logger.swift in Sources */,
 				26B51AC2246CBE1600862B84 /* DummyData.swift in Sources */,
 				26661286246B959300CC1D57 /* AppDelegate.swift in Sources */,
+				268CF5CC24750EB500896FB8 /* FoodEntryModalView.swift in Sources */,
 				2652C68E246CE36D00831015 /* DataModelExtensions.swift in Sources */,
+				268CF5F02475195C00896FB8 /* FoodItemRowView.swift in Sources */,
+				2693D87B246DE9FA00299BD3 /* FoodEntryFormView.swift in Sources */,
 				26661288246B959300CC1D57 /* SceneDelegate.swift in Sources */,
 				26BF14E9246D1C5E0087BA49 /* DebuggingView.swift in Sources */,
 				2666128A246B959300CC1D57 /* ContentView.swift in Sources */,
@@ -539,13 +555,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JJUWC4MH8Y;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CalorieCountingDevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.CalorieCountingDevApp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -556,13 +573,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JJUWC4MH8Y;
+				DEVELOPMENT_TEAM = M3FCT79SM9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CalorieCountingDevApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.CalorieCountingDevApp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

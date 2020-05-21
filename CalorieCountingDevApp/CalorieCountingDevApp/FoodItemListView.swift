@@ -2,38 +2,58 @@ import SwiftUI
 import CalorieCountingKit
 
 struct FoodItemListView: View {
-    @State private var sortIndex = 1
+    @State private var sortTag = FoodItemSort.default.tag
+    @State var foodEntryModalPresented = false
     @EnvironmentObject private var dummyData: DummyData
 
-    var sortedFoodItems: [FoodItem] {
-        let items = sortIndex == 1 ?
-            dummyData.foodItems.sortedByLabel() :
-            dummyData.foodItems.sortedByCalories()
-        return items
+    var foodItems: [FoodItem] {
+        if let sort = FoodItemSort(rawValue: sortTag) {
+            dummyData.sortFoodItems(by: sort)
+        }
+        return dummyData.foodItems
     }
 
     var body: some View {
         NavigationView {
-            VStack {
-                Picker(selection: $sortIndex, label: Text("Sort")) {
-                    Text("Name").tag(1)
-                    Text("Calories").tag(2)
-                }
-                    .pickerStyle(SegmentedPickerStyle())
-                List {
-                    ForEach(sortedFoodItems, id: \.uuid) { foodItem in
-                        HStack {
-                            FoodImageView(image: foodItem.image)
-                            Text(foodItem.label)
-                            Spacer()
-                            Text("\(foodItem.calories)")
-                                .foregroundColor(.gray)
+            List {
+                Section {
+                    Picker(selection: $sortTag, label: Text("Sort")) {
+                        ForEach(FoodItemSort.allCases, id: \.self) {
+                            Text($0.name).tag($0.tag)
                         }
                     }
-                    .navigationBarTitle(Text("Food Items"))
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+                Section {
+                    ForEach(foodItems, id: \.uuid) { foodItem in
+                        FoodItemRowView(foodItem: foodItem)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                print("Tapped:", foodItem.label)
+                                self.dummyData.selectedFoodItem = foodItem
+                                self.foodEntryModalPresented.toggle()
+                            }
+                            .sheet(isPresented: self.$foodEntryModalPresented) {
+                                FoodEntryModalView()
+                                    .environmentObject(self.dummyData)
+                            }
+                    }
+                    .onDelete { indexSet in
+                        logInfo("onDelete")
+                        self.dummyData.removeFoodItems(at: indexSet)
+                    }
                 }
             }
+            .navigationBarTitle(Text("Calories"), displayMode: .inline)
+            .navigationBarItems(trailing: Button(action: {
+                logInfo("add")
+            }) {
+                Image(systemName: "plus")
+            })
         }
+//        .sheet(isPresented: $foodEntryModalPresented) {
+//            FoodEntryModalView()
+//        }
     }
 }
 
