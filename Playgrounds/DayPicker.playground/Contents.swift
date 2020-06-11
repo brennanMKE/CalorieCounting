@@ -1,61 +1,53 @@
 import PlaygroundSupport
 import SwiftUI
 
-let DatePickerMaxDaysBack = 30
+let DayPickerMaxDaysBack = 30
 
 struct DayPicker: View {
-    @State var value: Int = DatePickerMaxDaysBack
+    @State var stepperValue: Int
+    @Binding var date: Date
 
-//    private var bindableDate: Binding<Date> { Binding (
-//        get: { self.model.usernameResult.isVisibleError },
-//        set: { if !$0 { self.model.dismissUsernameResultError() } }
-//        )
-//    }
+    private let maxDaysBack: Int
 
-    let dateChanged: (Date) -> Void
+    init(maxDaysBack: Int = DayPickerMaxDaysBack, date: Binding<Date>) {
+        // ensure the range is valid
+        let safeMaxDaysBack = max(maxDaysBack, 1)
+        self.maxDaysBack = safeMaxDaysBack
+        _stepperValue = State(initialValue: safeMaxDaysBack)
+        _date = date
+    }
 
-    var daysBack: Int {
-        // Note: 0 is today
-        let result = DatePickerMaxDaysBack - value
+    private func calculateDate(for daysBack: Int) -> Date {
+        let result = Calendar.current.date(byAdding: .day, value: daysBack * -1, to: Date())!
         return result
     }
 
-    var date: Date {
-        let result: Date
-
-        let date = Date()
-        let calendar = Calendar(identifier: .iso8601)
-        let day  = calendar.ordinality(of: .day, in: .year, for: date) ?? 0
-        let year = calendar.component(.year, from: date)
-        let components = DateComponents(calendar: calendar, year: year, day: day - (daysBack))
-        if let date = components.date {
-            result = date
-        } else {
-            fatalError("Failed to get date")
-        }
-
+    private var daysBack: Int {
+        let result = maxDaysBack - stepperValue
         return result
     }
 
-    var text: String {
+    private var text: String {
         let result: String
-        if daysBack == 0 {
+        switch daysBack {
+        case 0:
             result = "Today"
-        } else if daysBack == 1 {
+        case 1:
             result = "Yesterday"
-        } else {
+        default:
             result = getDayString(value: daysBack)
         }
-        dateChanged(date)
+
+//        date = calculateDate(for: daysBack)
 
         return result
     }
 
-    var weekRange: ClosedRange<Int> {
-        0...DatePickerMaxDaysBack
+    private var daysRange: ClosedRange<Int> {
+        0...maxDaysBack
     }
 
-    func getDayString(value: Int) -> String {
+    private func getDayString(value: Int) -> String {
         let result: String
         let dateFormatter = DateFormatter()
         if value < 7 {
@@ -69,7 +61,7 @@ struct DayPicker: View {
     }
 
     var body: some View {
-        Stepper(value: $value, in: weekRange) {
+        Stepper(value: $stepperValue, in: daysRange) {
             Text(text)
         }
     }
@@ -87,16 +79,12 @@ struct LiveView: View {
         HStack {
            Spacer()
            VStack {
-                DayPicker { date in
-                    print("Date Changed:", date)
-                    self.date = date
-                }
+                DayPicker(maxDaysBack: 7, date: $date)
                 Text(dateString)
             }
             Spacer()
         }
     }
-
 }
 
 let liveView = LiveView(date: Date())
